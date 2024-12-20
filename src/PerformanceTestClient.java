@@ -27,7 +27,11 @@ public class PerformanceTestClient {
                         for (int j = 0; j < transactionsPerClient; j++) {
                             long startTime = System.currentTimeMillis();
 
+                            //out.println("101 d 10000");
+                            out.println("101 w 18500");
                             out.println("101 d 100");
+
+
                             in.readLine();
 
                             long endTime = System.currentTimeMillis();
@@ -47,8 +51,8 @@ public class PerformanceTestClient {
             latch.await();
             executor.shutdown();
 
-            long averageTime = totalTransactionTime.get() / (clientCount * transactionsPerClient);
-            System.out.println(clientCount + "\t" + averageTime);
+            double averageTime = (double) totalTransactionTime.get() / (clientCount * transactionsPerClient);
+            System.out.println(clientCount + "\t\t\t\t" + averageTime);
         }
     }
 }
