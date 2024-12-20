@@ -12,7 +12,7 @@ public class PerformanceTestClient {
         int maxClients = 100;
         int transactionsPerClient = 10;
 
-        System.out.println("Clients\tAverage Time (ms)");
+        System.out.println("Clients\t\tAverage Time (ms)");
         for (int clientCount = 1; clientCount <= maxClients; clientCount++) {
             ExecutorService executor = Executors.newFixedThreadPool(clientCount);
             AtomicLong totalTransactionTime = new AtomicLong(0);
