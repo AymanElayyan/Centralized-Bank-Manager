@@ -1,8 +1,10 @@
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.*;
 
+// Bank Account Class
 class Account {
     private final int accountNumber;
     private final String name;
@@ -58,20 +60,24 @@ class Account {
     }
 }
 
+// Bank Server Class
 public class BankServer {
-    private static final Map<Integer, Account> accounts = new HashMap<>();
+    private static final Map<Integer, Account> accounts = new ConcurrentHashMap<>();
+    private static final int PORT = 5000;
 
     public static void main(String[] args) throws IOException {
-
+        // Load accounts
         loadAccounts("accounts.txt");
 
         // Start the server
-        ServerSocket serverSocket = new ServerSocket(5000);
-        System.out.println("Bank Server started on port 5000");
+        ServerSocket serverSocket = new ServerSocket(PORT);
+        System.out.println("Bank Server started on port " + PORT);
+
+        ExecutorService threadPool = Executors.newFixedThreadPool(10); // Fixed pool for scalability
 
         while (true) {
             Socket clientSocket = serverSocket.accept();
-            new ClientHandler(clientSocket).start();
+            threadPool.submit(new ClientHandler(clientSocket));
         }
     }
 
@@ -88,7 +94,7 @@ public class BankServer {
         }
     }
 
-    private static class ClientHandler extends Thread {
+    private static class ClientHandler implements Runnable {
         private final Socket clientSocket;
 
         public ClientHandler(Socket socket) {
