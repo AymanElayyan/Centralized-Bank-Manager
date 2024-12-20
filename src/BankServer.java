@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.*;
 
-// Bank Account Class
 class Account {
     private final int accountNumber;
     private final String name;
@@ -50,34 +49,35 @@ class Account {
             lock.unlock();
         }
     }
-
-    public void lock() {
-        lock.lock();
-    }
-
-    public void unlock() {
-        lock.unlock();
-    }
 }
 
-// Bank Server Class
 public class BankServer {
     private static final Map<Integer, Account> accounts = new ConcurrentHashMap<>();
     private static final int PORT = 5000;
+    private static final String LOG_FILE = "log.txt";
+    private static BufferedWriter logWriter;
 
     public static void main(String[] args) throws IOException {
+        // Initialize log writer
+        logWriter = new BufferedWriter(new FileWriter(LOG_FILE, true));
+
         // Load accounts
         loadAccounts("accounts.txt");
 
         // Start the server
-        ServerSocket serverSocket = new ServerSocket(PORT);
-        System.out.println("Bank Server started on port " + PORT);
+        try (ServerSocket serverSocket = new ServerSocket(PORT)) {
+            log("Bank Server started on port " + PORT);
 
-        ExecutorService threadPool = Executors.newFixedThreadPool(10); // Fixed pool for scalability
+            ExecutorService threadPool = Executors.newFixedThreadPool(10); // Fixed pool for scalability
 
-        while (true) {
-            Socket clientSocket = serverSocket.accept();
-            threadPool.submit(new ClientHandler(clientSocket));
+            while (true) {
+                Socket clientSocket = serverSocket.accept();
+                threadPool.submit(new ClientHandler(clientSocket));
+            }
+        } catch (IOException e) {
+            log("Server error: " + e.getMessage());
+        } finally {
+            logWriter.close();
         }
     }
 
@@ -91,6 +91,19 @@ public class BankServer {
                 double balance = Double.parseDouble(parts[2]);
                 accounts.put(accountNumber, new Account(accountNumber, name, balance));
             }
+        } catch (FileNotFoundException e) {
+            log("Accounts file not found: " + fileName);
+            throw e;
+        }
+    }
+
+    private static void log(String message) {
+        try {
+            logWriter.write(message);
+            logWriter.newLine();
+            logWriter.flush();
+        } catch (IOException e) {
+            System.err.println("Error writing to log file: " + e.getMessage());
         }
     }
 
@@ -115,31 +128,44 @@ public class BankServer {
 
                     Account account = accounts.get(accountNumber);
                     if (account == null) {
-                        out.println("Error: Account not found");
+                        String errorMsg = "Error: Account not found for request: " + request;
+                        out.println(errorMsg);
+                        log(errorMsg);
                         continue;
                     }
 
+                    String logMessage;
                     switch (action) {
                         case "d":
                             account.deposit(amount);
-                            out.println("Deposit successful. New balance: " + account.getBalance());
+                            logMessage = "Deposit successful for account " + accountNumber + ". New balance: " + account.getBalance();
+                            out.println(logMessage);
+                            log(logMessage);
                             break;
                         case "w":
                             if (account.withdraw(amount)) {
-                                out.println("Withdrawal successful. New balance: " + account.getBalance());
+                                logMessage = "Withdrawal successful for account " + accountNumber + ". New balance: " + account.getBalance();
+                                out.println(logMessage);
+                                log(logMessage);
                             } else {
-                                out.println("Error: Insufficient funds");
+                                logMessage = "Error: Insufficient funds for account " + accountNumber;
+                                out.println(logMessage);
+                                log(logMessage);
                             }
                             break;
                         case "q":
-                            out.println("Balance: " + account.getBalance());
+                            logMessage = "Balance query for account " + accountNumber + ". Balance: " + account.getBalance();
+                            out.println(logMessage);
+                            log(logMessage);
                             break;
                         default:
-                            out.println("Error: Invalid action");
+                            logMessage = "Error: Invalid action for request: " + request;
+                            out.println(logMessage);
+                            log(logMessage);
                     }
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                log("Error handling client: " + e.getMessage());
             }
         }
     }

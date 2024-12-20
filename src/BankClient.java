@@ -3,20 +3,19 @@ import java.net.*;
 import java.util.*;
 
 public class BankClient {
+    private static final String LOG_FILE = "client_log.txt";
 
     public static void main(String[] args) {
         try (Socket socket = new Socket("localhost", 5000);
              BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             PrintWriter serverOutput = new PrintWriter(socket.getOutputStream(), true)) {
+             PrintWriter serverOutput = new PrintWriter(socket.getOutputStream(), true);
+             BufferedWriter logWriter = new BufferedWriter(new FileWriter(LOG_FILE, true))) {
 
-            // Load the transaction file
-            String transactionFile = "transactions.txt"; // Replace with the path to your file
+            String transactionFile = "transactions.txt";
             List<Transaction> transactions = loadTransactions(transactionFile);
 
-            // Sort transactions by timestamp
             transactions.sort(Comparator.comparingInt(Transaction::getTimestamp));
 
-            // Execute transactions at specified intervals
             long startTime = System.currentTimeMillis();
             for (Transaction transaction : transactions) {
                 // Wait for the timestamp
@@ -25,14 +24,12 @@ public class BankClient {
                     Thread.sleep(delay);
                 }
 
-                // Send the transaction to the server
                 String request = transaction.toRequestString();
                 serverOutput.println(request);
-                System.out.println("Sent to server: " + request);
+                log(logWriter, "Sent to server: " + request);
 
-                // Receive and log the server response
                 String response = serverInput.readLine();
-                System.out.println("Server response: " + response);
+                log(logWriter, "Server response: " + response);
             }
 
         } catch (IOException | InterruptedException e) {
@@ -40,7 +37,12 @@ public class BankClient {
         }
     }
 
-    // Method to load transactions from a file
+    private static void log(BufferedWriter logWriter, String message) throws IOException {
+        logWriter.write(message);
+        logWriter.newLine();
+        logWriter.flush();
+    }
+
     private static List<Transaction> loadTransactions(String fileName) throws IOException {
         List<Transaction> transactions = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -52,7 +54,6 @@ public class BankClient {
         return transactions;
     }
 
-    // Inner class to represent a transaction
     static class Transaction {
         private final int timestamp;
         private final int accountNumber;
