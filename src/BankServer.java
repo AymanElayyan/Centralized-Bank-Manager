@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.*;
@@ -54,20 +55,23 @@ class Account {
 public class BankServer {
     private static final Map<Integer, Account> accounts = new ConcurrentHashMap<>();
     private static final int PORT = 5000;
-    private static final String LOG_FILE = "log.txt";
+    private static final String LOG_FILE = "server_log.txt";
     private static BufferedWriter logWriter;
+    private static final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public static void main(String[] args) throws IOException {
         // Initialize log writer
         logWriter = new BufferedWriter(new FileWriter(LOG_FILE, true));
+
+        // Add a separator for each server run
+        log("=============================================");
+        log("Bank Server started on port " + PORT);
 
         // Load accounts
         loadAccounts("accounts.txt");
 
         // Start the server
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-            log("Bank Server started on port " + PORT);
-
             ExecutorService threadPool = Executors.newFixedThreadPool(10); // Fixed pool for scalability
 
             while (true) {
@@ -98,8 +102,9 @@ public class BankServer {
     }
 
     private static void log(String message) {
+        String timestamp = dateFormatter.format(new Date());
         try {
-            logWriter.write(message);
+            logWriter.write("[" + timestamp + "]: " + message);
             logWriter.newLine();
             logWriter.flush();
         } catch (IOException e) {
@@ -129,7 +134,7 @@ public class BankServer {
                     Account account = accounts.get(accountNumber);
                     if (account == null) {
                         String errorMsg = "Error: Account not found for request: " + request;
-                        out.println(errorMsg);
+                        out.println("[" + dateFormatter.format(new Date()) + "]: " + errorMsg);
                         log(errorMsg);
                         continue;
                     }
@@ -139,28 +144,28 @@ public class BankServer {
                         case "d":
                             account.deposit(amount);
                             logMessage = "Deposit successful for account " + accountNumber + ". New balance: " + account.getBalance();
-                            out.println(logMessage);
+                            out.println("[" + dateFormatter.format(new Date()) + "]: " + logMessage);
                             log(logMessage);
                             break;
                         case "w":
                             if (account.withdraw(amount)) {
                                 logMessage = "Withdrawal successful for account " + accountNumber + ". New balance: " + account.getBalance();
-                                out.println(logMessage);
+                                out.println("[" + dateFormatter.format(new Date()) + "]: " + logMessage);
                                 log(logMessage);
                             } else {
                                 logMessage = "Error: Insufficient funds for account " + accountNumber;
-                                out.println(logMessage);
+                                out.println("[" + dateFormatter.format(new Date()) + "]: " + logMessage);
                                 log(logMessage);
                             }
                             break;
                         case "q":
                             logMessage = "Balance query for account " + accountNumber + ". Balance: " + account.getBalance();
-                            out.println(logMessage);
+                            out.println("[" + dateFormatter.format(new Date()) + "]: " + logMessage);
                             log(logMessage);
                             break;
                         default:
                             logMessage = "Error: Invalid action for request: " + request;
-                            out.println(logMessage);
+                            out.println("[" + dateFormatter.format(new Date()) + "]: " + logMessage);
                             log(logMessage);
                     }
                 }
