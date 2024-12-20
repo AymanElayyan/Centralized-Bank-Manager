@@ -5,11 +5,12 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.*;
 
+// Account class
 class Account {
     private final int accountNumber;
     private final String name;
     private double balance;
-    private final ReentrantLock lock = new ReentrantLock();
+    private final ReentrantLock lock = new ReentrantLock(); //
 
     public Account(int accountNumber, String name, double balance) {
         this.accountNumber = accountNumber;
@@ -64,8 +65,10 @@ public class BankServer {
         logWriter = new BufferedWriter(new FileWriter(LOG_FILE, true));
 
         // Add a separator for each server run
+        log("Tasneem");
         log("=============================================");
         log("Bank Server started on port " + PORT);
+
 
         // Load accounts
         loadAccounts("accounts.txt");

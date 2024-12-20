@@ -1,8 +1,0 @@
-Sent to server: 101 d 500.0
-Server response: [2024-12-20 16:54:47]: Deposit successful for account 101. New balance: 16800.0
-Sent to server: 101 d 200.0
-Server response: [2024-12-20 16:55:02]: Deposit successful for account 101. New balance: 17700.0
-Sent to server: 103 w 5000.0
-Server response: [2024-12-20 16:55:02]: Withdrawal successful for account 103. New balance: 6000.0
-Sent to server: 102 q
-Server response: [2024-12-20 16:55:03]: Balance query for account 102. Balance: 1200.0
