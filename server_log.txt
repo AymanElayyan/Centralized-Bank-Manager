@@ -1,6 +1,121 @@
-[2024-12-20 16:44:25]: =============================================
-[2024-12-20 16:44:25]: Bank Server started on port 5000
-[2024-12-20 16:45:04]: Deposit successful for account 101. New balance: 16500.0
-[2024-12-20 16:45:19]: Deposit successful for account 101. New balance: 16700.0
-[2024-12-20 16:45:19]: Withdrawal successful for account 103. New balance: 6000.0
-[2024-12-20 16:45:20]: Balance query for account 102. Balance: 1200.0
+[2024-12-20 16:54:27]: =============================================
+[2024-12-20 16:54:27]: Bank Server started on port 5000
+[2024-12-20 16:54:42]: Deposit successful for account 101. New balance: 16100.0
+[2024-12-20 16:54:44]: Deposit successful for account 101. New balance: 16200.0
+[2024-12-20 16:54:46]: Deposit successful for account 101. New balance: 16300.0
+[2024-12-20 16:54:47]: Deposit successful for account 101. New balance: 16800.0
+[2024-12-20 16:54:48]: Deposit successful for account 101. New balance: 16900.0
+[2024-12-20 16:54:50]: Deposit successful for account 101. New balance: 17000.0
+[2024-12-20 16:54:52]: Deposit successful for account 101. New balance: 17100.0
+[2024-12-20 16:54:54]: Deposit successful for account 101. New balance: 17200.0
+[2024-12-20 16:54:56]: Deposit successful for account 101. New balance: 17300.0
+[2024-12-20 16:54:58]: Deposit successful for account 101. New balance: 17400.0
+[2024-12-20 16:55:00]: Deposit successful for account 101. New balance: 17500.0
+[2024-12-20 16:55:02]: Deposit successful for account 101. New balance: 17700.0
+[2024-12-20 16:55:02]: Withdrawal successful for account 103. New balance: 6000.0
+[2024-12-20 16:55:02]: Deposit successful for account 101. New balance: 17900.0
+[2024-12-20 16:55:02]: Deposit successful for account 101. New balance: 17800.0
+[2024-12-20 16:55:03]: Balance query for account 102. Balance: 1200.0
+[2024-12-20 16:55:04]: Deposit successful for account 101. New balance: 18000.0
+[2024-12-20 16:55:04]: Deposit successful for account 101. New balance: 18100.0
+[2024-12-20 16:55:07]: Deposit successful for account 101. New balance: 18300.0
+[2024-12-20 16:55:07]: Deposit successful for account 101. New balance: 18200.0
+[2024-12-20 16:55:09]: Deposit successful for account 101. New balance: 18500.0[2024-12-20 16:55:09]: Deposit successful for account 101. New balance: 18400.0
+
+[2024-12-20 16:55:11]: Deposit successful for account 101. New balance: 18700.0
+[2024-12-20 16:55:11]: Deposit successful for account 101. New balance: 18700.0
+[2024-12-20 16:55:13]: Deposit successful for account 101. New balance: 18800.0
+[2024-12-20 16:55:13]: Deposit successful for account 101. New balance: 18900.0
+[2024-12-20 16:55:15]: Deposit successful for account 101. New balance: 19100.0
+[2024-12-20 16:55:15]: Deposit successful for account 101. New balance: 19000.0
+[2024-12-20 16:55:17]: Deposit successful for account 101. New balance: 19300.0
+[2024-12-20 16:55:17]: Deposit successful for account 101. New balance: 19200.0
+[2024-12-20 16:55:19]: Deposit successful for account 101. New balance: 19500.0
+[2024-12-20 16:55:19]: Deposit successful for account 101. New balance: 19400.0
+[2024-12-20 16:55:21]: Deposit successful for account 101. New balance: 19700.0
+[2024-12-20 16:55:21]: Deposit successful for account 101. New balance: 19700.0
+[2024-12-20 16:55:23]: Deposit successful for account 101. New balance: 20000.0
+[2024-12-20 16:55:23]: Deposit successful for account 101. New balance: 19800.0
+[2024-12-20 16:55:23]: Deposit successful for account 101. New balance: 19900.0
+[2024-12-20 16:55:25]: Deposit successful for account 101. New balance: 20100.0
+[2024-12-20 16:55:25]: Deposit successful for account 101. New balance: 20200.0
+[2024-12-20 16:55:25]: Deposit successful for account 101. New balance: 20300.0
+[2024-12-20 16:55:27]: Deposit successful for account 101. New balance: 20500.0
+[2024-12-20 16:55:27]: Deposit successful for account 101. New balance: 20600.0
+[2024-12-20 16:55:27]: Deposit successful for account 101. New balance: 20400.0
+[2024-12-20 16:55:29]: Deposit successful for account 101. New balance: 20800.0
+[2024-12-20 16:55:29]: Deposit successful for account 101. New balance: 20700.0
+[2024-12-20 16:55:29]: Deposit successful for account 101. New balance: 20900.0
+[2024-12-20 16:55:31]: Deposit successful for account 101. New balance: 21200.0[2024-12-20 16:55:31]: Deposit successful for account 101. New balance: 21100.0
+
+[2024-12-20 16:55:31]: Deposit successful for account 101. New balance: 21000.0
+[2024-12-20 16:55:33]: Deposit successful for account 101. New balance: 21300.0
+[2024-12-20 16:55:33]: Deposit successful for account 101. New balance: 21400.0
+[2024-12-20 16:55:33]: Deposit successful for account 101. New balance: 21500.0
+[2024-12-20 16:55:35]: Deposit successful for account 101. New balance: 21600.0
+[2024-12-20 16:55:35]: Deposit successful for account 101. New balance: 21700.0
+[2024-12-20 16:55:35]: Deposit successful for account 101. New balance: 21800.0
+[2024-12-20 16:55:37]: Deposit successful for account 101. New balance: 22000.0[2024-12-20 16:55:37]: Deposit successful for account 101. New balance: 21900.0
+
+[2024-12-20 16:55:37]: Deposit successful for account 101. New balance: 22100.0
+[2024-12-20 16:55:39]: Deposit successful for account 101. New balance: 22200.0
+[2024-12-20 16:55:39]: Deposit successful for account 101. New balance: 22300.0
+[2024-12-20 16:55:39]: Deposit successful for account 101. New balance: 22400.0
+[2024-12-20 16:55:41]: Deposit successful for account 101. New balance: 22500.0
+[2024-12-20 16:55:41]: Deposit successful for account 101. New balance: 22600.0
+[2024-12-20 16:55:41]: Deposit successful for account 101. New balance: 22700.0
+[2024-12-20 16:55:43]: Deposit successful for account 101. New balance: 22800.0
+[2024-12-20 16:55:43]: Deposit successful for account 101. New balance: 22900.0
+[2024-12-20 16:55:43]: Deposit successful for account 101. New balance: 23100.0
+[2024-12-20 16:55:43]: Deposit successful for account 101. New balance: 23000.0
+[2024-12-20 16:55:45]: Deposit successful for account 101. New balance: 23400.0
+[2024-12-20 16:55:45]: Deposit successful for account 101. New balance: 23500.0
+[2024-12-20 16:55:45]: Deposit successful for account 101. New balance: 23200.0
+[2024-12-20 16:55:45]: Deposit successful for account 101. New balance: 23300.0
+[2024-12-20 16:55:47]: Deposit successful for account 101. New balance: 23900.0[2024-12-20 16:55:47]: Deposit successful for account 101. New balance: 23700.0
+
+[2024-12-20 16:55:47]: Deposit successful for account 101. New balance: 23800.0
+[2024-12-20 16:55:47]: Deposit successful for account 101. New balance: 23600.0
+[2024-12-20 16:55:49]: Deposit successful for account 101. New balance: 24000.0
+[2024-12-20 16:55:49]: Deposit successful for account 101. New balance: 24100.0
+[2024-12-20 16:55:49]: Deposit successful for account 101. New balance: 24200.0
+[2024-12-20 16:55:49]: Deposit successful for account 101. New balance: 24300.0
+[2024-12-20 16:55:51]: Deposit successful for account 101. New balance: 24400.0[2024-12-20 16:55:51]: Deposit successful for account 101. New balance: 24700.0
+
+[2024-12-20 16:55:51]: Deposit successful for account 101. New balance: 24500.0
+[2024-12-20 16:55:51]: Deposit successful for account 101. New balance: 24600.0
+[2024-12-20 16:55:53]: Deposit successful for account 101. New balance: 24800.0
+[2024-12-20 16:55:53]: Deposit successful for account 101. New balance: 25000.0
+[2024-12-20 16:55:53]: Deposit successful for account 101. New balance: 25100.0
+[2024-12-20 16:55:53]: Deposit successful for account 101. New balance: 24900.0
+[2024-12-20 16:55:55]: Deposit successful for account 101. New balance: 25300.0[2024-12-20 16:55:55]: Deposit successful for account 101. New balance: 25200.0
+
+[2024-12-20 16:55:55]: Deposit successful for account 101. New balance: 25500.0
+[2024-12-20 16:55:55]: Deposit successful for account 101. New balance: 25400.0
+[2024-12-20 16:55:57]: Deposit successful for account 101. New balance: 25600.0[2024-12-20 16:55:57]: Deposit successful for account 101. New balance: 25800.0
+
+[2024-12-20 16:55:57]: Deposit successful for account 101. New balance: 25900.0
+[2024-12-20 16:55:57]: Deposit successful for account 101. New balance: 25700.0
+[2024-12-20 16:55:59]: Deposit successful for account 101. New balance: 26200.0[2024-12-20 16:55:59]: Deposit successful for account 101. New balance: 26300.0
+
+[2024-12-20 16:55:59]: Deposit successful for account 101. New balance: 26100.0
+[2024-12-20 16:55:59]: Deposit successful for account 101. New balance: 26000.0
+[2024-12-20 16:56:01]: Deposit successful for account 101. New balance: 26500.0[2024-12-20 16:56:01]: Deposit successful for account 101. New balance: 26600.0
+[2024-12-20 16:56:01]: Deposit successful for account 101. New balance: 26700.0[2024-12-20 16:56:01]: Deposit successful for account 101. New balance: 26400.0
+
+
+[2024-12-20 16:56:03]: Deposit successful for account 101. New balance: 26800.0
+[2024-12-20 16:56:03]: Deposit successful for account 101. New balance: 26900.0
+[2024-12-20 16:56:03]: Deposit successful for account 101. New balance: 27000.0
+[2024-12-20 16:56:03]: Deposit successful for account 101. New balance: 27100.0
+[2024-12-20 16:56:03]: Deposit successful for account 101. New balance: 27200.0
+[2024-12-20 16:56:05]: Deposit successful for account 101. New balance: 27500.0
+[2024-12-20 16:56:05]: Deposit successful for account 101. New balance: 27700.0
+[2024-12-20 16:56:05]: Deposit successful for account 101. New balance: 27600.0
+[2024-12-20 16:56:05]: Deposit successful for account 101. New balance: 27300.0
+[2024-12-20 16:56:05]: Deposit successful for account 101. New balance: 27400.0
+[2024-12-20 16:56:06]: Error handling client: Connection reset
+[2024-12-20 16:56:06]: Error handling client: Connection reset
+[2024-12-20 16:56:06]: Error handling client: Connection reset
+[2024-12-20 16:56:06]: Error handling client: Connection reset
+[2024-12-20 16:56:06]: Error handling client: Connection reset
