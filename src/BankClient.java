@@ -18,7 +18,6 @@ public class BankClient {
 
             long startTime = System.currentTimeMillis();
             for (Transaction transaction : transactions) {
-                // Wait for the timestamp
                 long delay = transaction.getTimestamp() * 1000L - (System.currentTimeMillis() - startTime);
                 if (delay > 0) {
                     Thread.sleep(delay);
